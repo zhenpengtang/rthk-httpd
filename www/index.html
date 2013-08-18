@@ -1,0 +1,54 @@
+<!DOCTYPE html> <html> <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  
+  
+  <link rel="stylesheet" 
+href="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  
+  <!-- Extra Codiqa features -->
+  <link rel="stylesheet" 
+href="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.css">
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script 
+src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
+  <script 
+src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <!-- Extra Codiqa features -->
+  <script 
+src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
+   
+</head> <body> <!-- Home --> <div data-role="page" id="page1">
+    <div data-role="content">
+        <a class="radioON" data-role="button" href="#page1">
+            Radio ON
+        </a>
+        <a class="radioOFF"	data-role="button" href="#page1">
+            Radio OFF
+        </a>
+        <div data-role="fieldcontain">
+            <label for="slider1">
+                Valume
+            </label>
+            <input id="slider1" type="range" name="slider" value="50" 
+min="0" max="100"
+            data-highlight="false">
+        </div>
+    </div> </div> <script> $(document).ready(function(){
+  	$(".radioON").click(function(){
+  		$.post("/radio-on");
+	});
+  	$(".radioOFF").click(function(){
+  		$.post("/radio-off");
+	});
+	$("span.ui-btn-inner").bind("swipe",function(){
+		$.post("/radio",{volume:$("a.ui-slider-handle").attr("style")});
+  		//alert("hello"+$("a.ui-slider-handle").attr("style"));
+	});
+});
+</script> </body> </html>
