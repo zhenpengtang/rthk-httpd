@@ -20,7 +20,9 @@ class RadioOFFHandler(tornado.web.RequestHandler):
 class RadioHandler(tornado.web.RequestHandler):
     def post(self):
         message = self.get_argument("volume", None)
-        vol=message[-4:-1]
+        vol=message+'%'
+	#print message
+	print vol
         radio.volumeSet(vol)
 
 

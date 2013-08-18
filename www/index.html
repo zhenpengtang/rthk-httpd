@@ -35,8 +35,8 @@ src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
             <label for="slider1">
                 Valume
             </label>
-            <input id="slider1" type="range" name="slider" value="50" 
-min="0" max="100"
+            <input id="slider1" type="range" name="slider" value="75" 
+min="50" max="99"
             data-highlight="false">
         </div>
     </div> </div> <script> $(document).ready(function(){
@@ -47,7 +47,7 @@ min="0" max="100"
   		$.post("/radio-off");
 	});
 	$("span.ui-btn-inner").bind("swipe",function(){
-		$.post("/radio",{volume:$("a.ui-slider-handle").attr("style")});
+		$.post("/radio",{volume:$("a.ui-slider-handle").attr("aria-valuenow")});
   		//alert("hello"+$("a.ui-slider-handle").attr("style"));
 	});
 });

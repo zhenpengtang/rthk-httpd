@@ -21,6 +21,7 @@ def radioON():
     myrun(command_on)
 
 def volumeSet(vol):
+    #vol=int(int(vol[:2])*0.99+50)
     print volume_run+vol
     os.system(volume_run+vol)
 
